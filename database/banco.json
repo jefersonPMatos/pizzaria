@@ -1,0 +1,17 @@
+{
+    "pizzas": [
+      {
+        "nome": "Margherita",
+        "preco": "R$ 20,00",
+        "imagem": "https://www.pizzahut.com.br/static/images/pizzas/margherita.png"
+      }
+    ],
+    "usuarios": [
+      {
+        "nome": "José",
+        "email": "jose@exemplo.com",
+        "senha": "123456",
+        "eh_admin": true
+      }
+    ]
+  }
