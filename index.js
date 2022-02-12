@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
-const session = require('express-session')
+const session = require('express-session');
 
+const baseRoutes = require('./routes/index');
 const pizzasRoutes = require('./routes/pizzas');
 const usuariosRoutes = require('./routes/usuarios');
 
@@ -19,7 +20,8 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(pizzasRoutes);
+app.use(baseRoutes)
+app.use('/pizzas', pizzasRoutes);
 app.use('/usuarios', usuariosRoutes);
 
 
