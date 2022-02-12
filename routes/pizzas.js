@@ -1,6 +1,7 @@
 const express = require('express');
 
-const ehAdmin = require('../middlewares/usuarioEhadmin')
+const ehAdmin = require('../middlewares/usuarioEhadmin');
+const uploadFotos = require('../middlewares/uploadFotos');
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.get('/cadastrar', (req, res) => {
     res.send('ok')
 });
 
-router.post('/cadastrar', (req, res) => {
+router.post('/cadastrar', uploadFotos, (req, res) => {
     res.send('ok')
 });
 
