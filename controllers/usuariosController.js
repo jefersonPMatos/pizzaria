@@ -45,9 +45,15 @@ const usuariosController = {
 
         if (!meuUsuario) {
             return res.send('Usuário ou senha inválidos')
+        };
+
+        const senhaEstaCorreta = bcrypt.compareSync(req.body.senha, meuUsuario.senha);
+
+        if (!senhaEstaCorreta) {
+            return res.send('Usuário ou senha inválidos')
         }
 
-        res.send(meuUsuario)
+        res.render('index');
     }
 };
 
