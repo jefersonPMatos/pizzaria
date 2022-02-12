@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const res = require('express/lib/response');
 
 const usuariosController = {
     
@@ -31,6 +32,22 @@ const usuariosController = {
     },
     exibeFormularioCadastro: (req, res) => {
         res.render('cadastrar');
+    },
+    exibeFormularioLogin: (req, res) => {
+        res.render('login');
+    },
+    fazerLogin: (req, res) => {
+        const arquivo = fs.readFyleSync(path.join(__dirname, '..', 'database', 'banco.json'), {
+            encoding: 'utf-8'
+        });
+        const objeto = JSON.parse(arquivo)
+        const meuUsuario = objeto.usuarios.find(usuario => usuario.email === req.body.usuario)
+
+        if (!meuUsuario) {
+            return res.send('Usuário ou senha inválidos')
+        }
+
+        res.send(meuUsuario)
     }
 };
 
