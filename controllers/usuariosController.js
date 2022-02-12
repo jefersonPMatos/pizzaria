@@ -53,7 +53,10 @@ const usuariosController = {
             return res.send('Usuário ou senha inválidos')
         }
 
-        res.render('index');
+        delete meuUsuario.senha;
+        req.session.usuario = meuUsuario;
+
+        res.redirect('/');
     }
 };
 
